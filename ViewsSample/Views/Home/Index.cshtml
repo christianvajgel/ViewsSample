@@ -3,32 +3,25 @@
 }
 
 @{
-    string name = "Christian";
-    int operation = (1 + 12 - 50);
+    var name = "Christian";
+    var operation = (1 + 12 - 50);
     var dateNow = DateTime.Now;
     var dateUtc = DateTime.UtcNow;
 }
 
-    <div class="text-center">
-        <h1 class="display-4">@($"Hello {name}") </h1>
-        <h1 class="display-4">(1 + 12 - 50) = @(operation) </h1>
-        <br />
-        <h1 class="display-4">Time local: @($"{dateNow}") </h1>
-        <h1 class="display-4">Time UTC: @($"{dateUtc}") </h1>
+<div class="text-center">
+    <h1 class="display-4">@($"Hello {name}") </h1>
+    <h1 class="display-4">(1 + 12 - 50) = @(operation) </h1>
+    <br />
+    <h1 class="display-4">Time local: @($"{dateNow}") </h1>
+    <h1 class="display-4">Time UTC: @($"{dateUtc}") </h1>
+    @for (var i = 0; i < 11; i++)
+    {
+        var boolResult = new Func<bool>(() => { return i % 2 == 0; })();
 
-        @for (var i = 0; i < 11; i++)
-        {
-            var boolResult = new Func<bool>(() => { return i % 2 == 0; })();
-
-            <text>
-                @($"i = {i} -> ")@(boolResult)
-            </text><br />
-            
-            
-
-            //@(i % 2 == 0 ? <text></text> : <text></text> )
-        }
-
-
-        <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-    </div>
+        <text>
+            @($"i = {i} -> ")@(boolResult)
+        </text><br />
+    }
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
